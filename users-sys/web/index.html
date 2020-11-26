@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="js/jquery-1.12.4.min.js"></script>
+<link href="js/bootstrap.min.css" rel="stylesheet"/>
+<script src="js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>信息列表</title>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "list",
+                type: "get",
+                success: function (list) {
+                    $.each(list, function (index, product) {
+                        $('#tab').append(
+                            "<tr>" +
+                            "<td>" + product.id + "</td>" +
+                            "<td>" + product.pwd + "</td>" +
+                            "</tr>"
+                        )
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <form action="post">
+        <table class="table table-bordered table-striped table-hover" id="tab">
+            <tr>
+                <td>id</td>
+                <td>密码</td>
+
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

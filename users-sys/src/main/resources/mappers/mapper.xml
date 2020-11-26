@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users.dao.UsersysDao">
+    <resultMap id="Map" type="users.entity.Usersys">
+        <id property="id" column="id"></id>
+        <result property="pwd" column="pwd"></result>
+    </resultMap>
+
+
+    <insert id="add" parameterType="Usersys" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+         insert into usersys (id,pwd) values(#{id},#{pwd})
+    </insert>
+
+    <select id="checklogin"></select>
+
+    <select id="listProduct" resultType="users.entity.Usersys" resultMap="Map">
+            select id,pwd from usersys
+    </select>
+</mapper>
